@@ -3,68 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Wash Service</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Car Wash Service</h1>
-    <a href="index.html">⬅ Back to Services</a>
-  </header>
+  <title>Car Wash Packages - Bassi’s Bucket List</title>
 
-  <section class="service-details">
-    <h2>Choose Your Package</h2>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Basic Package -->
-    <div class="package">
-      <h3>🚗 Basic Package</h3>
-      <p><strong>Time:</strong> 1–2 hours</p>
-      <p><strong>Includes:</strong> Interior & Exterior</p>
-      <ul>
-        <li>Soft wash with hands</li>
-        <li>Microfibre towel drying</li>
-        <li>Rim clean and tire shine</li>
-        <li>Mud guard clean</li>
-        <li>Headlight clean</li>
-        <li>Interior towel drying</li>
-        <li>Vacuum mats</li>
-        <li>Towel clean interior surfaces</li>
-        <li>Towel clean door jambs</li>
-        <li>Deodorizing interior</li>
-      </ul>
-      <p><strong>Prices:</strong></p>
-      <ul>
-        <li>Sedan – $150</li>
-        <li>SUV – $180</li>
-        <li>Truck/Van – $220</li>
-      </ul>
-      <button onclick="bookNow('Car Wash - Basic')">Book Basic</button>
-    </div>
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Premium Package -->
-    <div class="package premium">
-      <h3>✨ Premium Package</h3>
-      <p><strong>Time:</strong> 2–3 hours</p>
-      <p><strong>Includes:</strong> Interior & Exterior</p>
-      <ul>
-        <li>Soft wash with foam and shampoo</li>
-        <li>Microfibre towel drying</li>
-        <li>Total wheel care</li>
-        <li>Full mud guard care</li>
-        <li>Detailed interior cleaning (glass, jambs, holders, dashboard)</li>
-        <li>Vacuum mats and seats</li>
-        <li>Deodorizing interior</li>
-      </ul>
-      <p><strong>Prices:</strong></p>
-      <ul>
-        <li>Sedan – $___</li>
-        <li>SUV – $___</li>
-        <li>Truck/Van – $___</li>
-      </ul>
-      <button onclick="bookNow('Car Wash - Premium')">Book Premium</button>
-    </div>
-  </section>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: black;
+      padding: 25px;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      color: red;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
 
-  <script src="script.js"></script>
-</body>
-</html>
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .plan {
+      flex: 1;
+      min-width: 350px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+    .plan:hover {
+      transform: scale(1.03);
+    }
+
+    .plan-header {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-bottom: 5px solid red;
+    }
+    .plan-header h3 {
+      margin: 0;
+      font-size: 24px;
+      color: red;
+    }
+    .plan-header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .plan-body {
+      padding: 25px;
+      flex-grow: 1;
+    }
+    .plan-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .plan-body li {
+      margin: 14px 0;
+      font-size: 15px;
+    }
+    .plan-body li i {
+      color: red;
+      margin-right: 10px;
+    }
+
+    .plan-price {
+      text-align: center;
+      padding: 20px;
+      background: #f
