@@ -3,249 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bassi's Bucket List</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: black;
-      color: red;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header img.logo {
-      max-width: 120px;
-      display: block;
-      margin: 0 auto 10px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      color: white;
-      margin: 5px 0 0;
-    }
-    /* Services Grid */
-    #services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
-    .service-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-    .service-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .service-card h3 {
-      margin: 10px 0;
-      color: red;
-    }
-    .service-card p {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-    .service-card button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background: red;
-      color: white;
-      font-weight: bold;
-    }
-    .service-card button:hover {
-      background: darkred;
-    }
-    /* Details Section */
-    .service-details {
-      background: #fff;
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 800px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .service-details h2 {
-      color: red;
-    }
-    /* Booking Form */
-    .booking-form {
-      background: black;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-    .booking-form h2 {
-      color: red;
-      margin-bottom: 20px;
-    }
-    .booking-form form {
-      max-width: 500px;
-      margin: auto;
-    }
-    .booking-form input,
-    .booking-form select,
-    .booking-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 5px;
-      border: none;
-    }
-    .booking-form button {
-      background: red;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .booking-form button:hover {
-      background: darkred;
-    }
-  </style>
+  <title>Bassi’s Bucket List</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
   <header>
-    <img src="images/logo.png" alt="Bassi's Bucket List Logo" class="logo">
+    <img src="logo.png" alt="Bassi’s Logo" class="logo">
     <h1>Bassi’s Bucket List</h1>
-    <p>Your trusted cleaning & detailing experts</p>
+    <p>Premium Cleaning & Detailing Services</p>
   </header>
 
-  <!-- Services Grid -->
-  <section id="services">
-    <div class="service-card" id="carwash">
-      <img src="images/carwash.jpg" alt="Car Wash">
-      <h3>Car Wash</h3>
-      <p>Interior & exterior care packages for all vehicle types.</p>
-      <button onclick="openBooking('Car Wash')">Book Now</button>
-      <button onclick="viewService('carwash-details')">View Service</button>
+  <!-- Services -->
+  <section class="services">
+    <!-- Car Wash -->
+    <div class="card">
+      <img src="service3.jpg" alt="Car Wash" class="service-img">
+      <h2>Car Wash</h2>
+      <p>Interior & exterior care packages for every vehicle type.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="car-wash">View Service</button>
     </div>
 
-    <div class="service-card" id="driveway">
-      <img src="images/driveway.jpg" alt="Driveway Cleaning">
-      <h3>Driveway Cleaning</h3>
-      <p>Professional cleaning for concrete, stone, and more.</p>
-      <button onclick="openBooking('Driveway Cleaning')">Book Now</button>
-      <button onclick="viewService('driveway-details')">View Service</button>
+    <!-- Driveway -->
+    <div class="card">
+      <img src="service4.jpg" alt="Driveway Cleaning" class="service-img">
+      <h2>Driveway Cleaning</h2>
+      <p>Restore your driveway’s shine with professional power cleaning.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="driveway">View Service</button>
     </div>
 
-    <div class="service-card" id="sidewalk">
-      <img src="images/sidewalk.jpg" alt="Sidewalk Cleaning">
-      <h3>Sidewalk Cleaning</h3>
-      <p>Freshen up sidewalks with expert cleaning care.</p>
-      <button onclick="openBooking('Sidewalk Cleaning')">Book Now</button>
-      <button onclick="viewService('sidewalk-details')">View Service</button>
+    <!-- Sidewalk -->
+    <div class="card">
+      <img src="service5.jpg" alt="Sidewalk Cleaning" class="service-img">
+      <h2>Sidewalk Cleaning</h2>
+      <p>Keep sidewalks spotless and safe with our deep clean solutions.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="sidewalk">View Service</button>
     </div>
 
-    <div class="service-card" id="fence">
-      <img src="images/fence.jpg" alt="Fence Cleaning">
-      <h3>Fence Cleaning</h3>
-      <p>Wood fence cleaning and restoration for a fresh new look.</p>
-      <button onclick="openBooking('Fence Cleaning')">Book Now</button>
-      <button onclick="viewService('fence-details')">View Service</button>
+    <!-- Fence -->
+    <div class="card">
+      <img src="service6.jpg" alt="Fence Cleaning" class="service-img">
+      <h2>Fence Cleaning</h2>
+      <p>Wood fence cleaning to bring back natural beauty and durability.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="fence">View Service</button>
     </div>
 
-    <div class="service-card" id="boat">
-      <img src="images/boat.jpg" alt="Boat Cleaning">
-      <h3>Boat Cleaning</h3>
-      <p>Comprehensive cleaning tailored for your boat size.</p>
-      <button onclick="openBooking('Boat Cleaning')">Book Now</button>
-      <button onclick="viewService('boat-details')">View Service</button>
+    <!-- Boat Cleaning -->
+    <div class="card">
+      <img src="service7.jpg" alt="Boat Cleaning" class="service-img">
+      <h2>Boat Cleaning</h2>
+      <p>Professional boat washing and detailing for vessels of all sizes.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="boat">View Service</button>
     </div>
 
-    <div class="service-card" id="bin">
-      <img src="images/bin.jpg" alt="Bin Cleaning">
-      <h3>Bin Cleaning</h3>
-      <p>Eliminate odors and sanitize your bins effectively.</p>
-      <button onclick="openBooking('Bin Cleaning')">Book Now</button>
-      <button onclick="viewService('bin-details')">View Service</button>
+    <!-- Bin Cleaning -->
+    <div class="card">
+      <img src="service8.jpg" alt="Bin Cleaning" class="service-img">
+      <h2>Bin Cleaning</h2>
+      <p>Eco-friendly deep cleaning and deodorizing for trash bins.</p>
+      <button class="btn book-btn">Book Now</button>
+      <button class="btn view-btn" data-service="bin">View Service</button>
     </div>
   </section>
 
-  <!-- Service Details -->
-  <section id="carwash-details" class="service-details">
-    <h2>Car Wash Packages</h2>
-    <p>Details about Car Wash services go here...</p>
-  </section>
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Book a Service</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select>
+          <option>Car Wash</option>
+          <option>Driveway Cleaning</option>
+          <option>Sidewalk Cleaning</option>
+          <option>Fence Cleaning</option>
+          <option>Boat Cleaning</option>
+          <option>Bin Cleaning</option>
+        </select>
+        <textarea placeholder="Additional Details"></textarea>
+        <button type="submit" class="btn">Submit Booking</button>
+      </form>
+    </div>
+  </div>
 
-  <section id="driveway-details" class="service-details">
-    <h2>Driveway Cleaning</h2>
-    <p>Details about Driveway Cleaning services go here...</p>
-  </section>
+  <!-- Service Details Modal -->
+  <div id="service-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="service-details"></div>
+    </div>
+  </div>
 
-  <section id="sidewalk-details" class="service-details">
-    <h2>Sidewalk Cleaning</h2>
-    <p>Details about Sidewalk Cleaning services go here...</p>
-  </section>
-
-  <section id="fence-details" class="service-details">
-    <h2>Fence Cleaning</h2>
-    <p>Details about Fence Cleaning services go here...</p>
-  </section>
-
-  <section id="boat-details" class="service-details">
-    <h2>Boat Cleaning</h2>
-    <p>Details about Boat Cleaning services go here...</p>
-  </section>
-
-  <section id="bin-details" class="service-details">
-    <h2>Bin Cleaning</h2>
-    <p>Details about Bin Cleaning services go here...</p>
-  </section>
-
-  <!-- Booking Form -->
-  <section id="booking" class="booking-form">
-    <h2>Book a Service</h2>
-    <form action="https://formspree.io/f/yourFormID" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <select name="service" id="selected-service">
-        <option value="Car Wash">Car Wash</option>
-        <option value="Driveway Cleaning">Driveway Cleaning</option>
-        <option value="Sidewalk Cleaning">Sidewalk Cleaning</option>
-        <option value="Fence Cleaning">Fence Cleaning</option>
-        <option value="Boat Cleaning">Boat Cleaning</option>
-        <option value="Bin Cleaning">Bin Cleaning</option>
-      </select>
-      <textarea name="details" placeholder="Additional Details"></textarea>
-      <button type="submit">Book Now</button>
-    </form>
-  </section>
-
-  <script>
-    function openBooking(service) {
-      document.getElementById('selected-service').value = service;
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function viewService(serviceId) {
-      document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
