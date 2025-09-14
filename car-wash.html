@@ -3,170 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Wash Services - Bassi’s Bucket List</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <title>Car Wash - Bassi’s Bucket</title>
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: #f1f1f1;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #eee;
       line-height: 1.6;
+      text-align: center;
     }
     header {
-      background: linear-gradient(135deg, #b30000, #660000);
-      text-align: center;
-      padding: 2.5rem 1rem;
+      background: linear-gradient(90deg, #111, #900);
+      padding: 20px;
     }
     header h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      font-weight: 800;
       color: #fff;
     }
-    section {
-      padding: 2rem;
-      max-width: 950px;
-      margin: auto;
-      background: #1a1a1a;
-      margin-bottom: 2rem;
+    .hero {
+      background: url('services3.jpg') no-repeat center/cover;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h2 {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 2.5rem;
     }
-    h2 {
-      color: #ff3333;
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .content {
+      padding: 40px;
     }
-    h3 {
-      margin-top: 1.5rem;
-      color: #e6e6e6;
+    .content h3 {
+      color: #f33;
+      margin-bottom: 15px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 0.6rem 0;
-    }
-    ul li:before {
-      content: "✔ ";
-      color: #ff3333;
-      font-weight: bold;
-      margin-right: 6px;
-    }
-    .price-list {
-      margin-top: 0.8rem;
-      background: #222;
-      padding: 1rem;
-      border-radius: 6px;
-    }
-    .price-list p {
-      margin: 0.3rem 0;
-      font-weight: 600;
-    }
-    .note {
-      margin-top: 1rem;
-      font-style: italic;
-      color: #bbb;
-    }
-    .book-now {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 1rem 2rem;
-      background: #ff3333;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      transition: 0.3s ease;
-    }
-    .book-now:hover {
-      background: #e60000;
-      transform: scale(1.05);
-    }
-    .icon {
-      font-size: 1.6rem;
-      color: #ff3333;
-      margin-right: 8px;
+    .content p {
+      max-width: 800px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1><i class="fa-solid fa-car icon"></i> Car Wash Services</h1>
+    <h1>Bassi’s Bucket</h1>
   </header>
 
-  <section>
-    <h2><i class="fa-solid fa-spray-can-sparkles icon"></i> Basic Package 
-      <span style="font-size:1rem; font-weight:400;">(Estimated Time: 1–2 Hours)</span>
-    </h2>
-    <p>Our <strong>Basic Car Wash</strong> is designed to refresh your vehicle inside and out with essential care:</p>
-    <ul>
-      <li>Gentle soft-touch hand wash</li>
-      <li>Vacuuming of all mats</li>
-      <li>Wheel and rim cleaning</li>
-      <li>Protective tire shine</li>
-      <li>Interior towel drying</li>
-      <li>Crystal-clear interior glass cleaning</li>
-      <li>Microfiber towel drying</li>
-    </ul>
-    <div class="price-list">
-      <p><strong>Pricing:</strong></p>
-      <p>Sedan — $150</p>
-      <p>SUV — $180</p>
-      <p>Truck/Van — $220</p>
-    </div>
-  </section>
+  <div class="hero">
+    <h2>Car Wash Packages</h2>
+  </div>
 
-  <section>
-    <h2><i class="fa-solid fa-gem icon"></i> Premium Package 
-      <span style="font-size:1rem; font-weight:400;">(Estimated Time: 2–3 Hours)</span>
-    </h2>
-    <p>The <strong>Premium Car Wash</strong> delivers a complete showroom-ready finish for your vehicle:</p>
-    <ul>
-      <li>All Basic services included</li>
-      <li>Deep vacuuming of seats & mats</li>
-      <li>Fabric shampooing for upholstery</li>
-      <li>Dashboard and console detailing with shine</li>
-      <li>Cup holder & compartment cleaning</li>
-      <li>Door jamb cleaning</li>
-      <li>Total mud guard care</li>
-      <li>Complete tire conditioning & protection</li>
-      <li>Full interior detailing and sanitization</li>
-      <li>Professional deodorizer treatment</li>
-    </ul>
-    <div class="price-list">
-      <p><strong>Pricing:</strong></p>
-      <p>Sedan — $200</p>
-      <p>SUV — $250</p>
-      <p>Truck/Van — $300</p>
-    </div>
-  </section>
+  <div class="content">
+    <h3>Basic</h3>
+    <p>Sedan $150 | SUV $180 | Truck/Van $220</p>
 
-  <section>
-    <h2><i class="fa-solid fa-plus-circle icon"></i> Add-On Services</h2>
-    <ul>
-      <li><strong>Pet Hair Removal</strong> — $40</li>
-      <li><strong>Paint Restoration & Protection</strong> — $20</li>
-      <li><strong>Mat & Seat Steam Cleaning</strong> — $50</li>
-    </ul>
-    <p class="note">⚠️ Prices may vary depending on vehicle type and prior condition.</p>
-  </section>
+    <h3>Premium</h3>
+    <p>Sedan $200 | SUV $250 | Truck/Van $300</p>
 
-  <section style="text-align:center;">
-    <a href="booking.html" class="book-now"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
-  </section>
+    <h3>Add-ons</h3>
+    <p>Pet Hair Removal $40 | Paint Restoration $20 | Seat Steaming $50</p>
 
+    <p><em>Prices may vary depending on vehicle condition.</em></p>
+  </div>
 </body>
 </html>
