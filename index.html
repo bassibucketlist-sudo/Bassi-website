@@ -3,106 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bassi’s Bucket List</title>
+  <title>Bassi's Bucket List - Premium Mobile Detailing</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
-    <img src="logo.png" alt="Bassi’s Logo" class="logo">
-    <h1>Bassi’s Bucket List</h1>
-    <p>Premium Cleaning & Detailing Services</p>
+    <img src="images/logo.png" alt="Bassi's Bucket List Logo" class="logo">
+    <h1>Bassi's Bucket List</h1>
+    <p class="tagline">Premium Mobile Detailing</p>
   </header>
 
-  <!-- Services -->
+  <!-- SERVICES SECTION -->
   <section class="services">
-    <!-- Car Wash -->
-    <div class="card">
-      <img src="service3.jpg" alt="Car Wash" class="service-img">
-      <h2>Car Wash</h2>
-      <p>Interior & exterior care packages for every vehicle type.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="car-wash">View Service</button>
+    <div class="service-card" style="background-image: url('images/carwash.jpg');">
+      <div class="overlay">
+        <h3>Car Wash</h3>
+        <div class="buttons">
+          <button onclick="openBooking('Car Wash')">Book Now</button>
+          <a href="service-carwash.html" class="view-btn">View Service</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Driveway -->
-    <div class="card">
-      <img src="service4.jpg" alt="Driveway Cleaning" class="service-img">
-      <h2>Driveway Cleaning</h2>
-      <p>Restore your driveway’s shine with professional power cleaning.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="driveway">View Service</button>
+    <div class="service-card" style="background-image: url('images/driveway.jpg');">
+      <div class="overlay">
+        <h3>Driveway Cleaning</h3>
+        <div class="buttons">
+          <button onclick="openBooking('Driveway Cleaning')">Book Now</button>
+          <a href="service-driveway.html" class="view-btn">View Service</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Sidewalk -->
-    <div class="card">
-      <img src="service5.jpg" alt="Sidewalk Cleaning" class="service-img">
-      <h2>Sidewalk Cleaning</h2>
-      <p>Keep sidewalks spotless and safe with our deep clean solutions.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="sidewalk">View Service</button>
+    <div class="service-card" style="background-image: url('images/fence.jpg');">
+      <div class="overlay">
+        <h3>Fence Cleaning</h3>
+        <div class="buttons">
+          <button onclick="openBooking('Fence Cleaning')">Book Now</button>
+          <a href="service-fence.html" class="view-btn">View Service</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Fence -->
-    <div class="card">
-      <img src="service6.jpg" alt="Fence Cleaning" class="service-img">
-      <h2>Fence Cleaning</h2>
-      <p>Wood fence cleaning to bring back natural beauty and durability.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="fence">View Service</button>
-    </div>
-
-    <!-- Boat Cleaning -->
-    <div class="card">
-      <img src="service7.jpg" alt="Boat Cleaning" class="service-img">
-      <h2>Boat Cleaning</h2>
-      <p>Professional boat washing and detailing for vessels of all sizes.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="boat">View Service</button>
-    </div>
-
-    <!-- Bin Cleaning -->
-    <div class="card">
-      <img src="service8.jpg" alt="Bin Cleaning" class="service-img">
-      <h2>Bin Cleaning</h2>
-      <p>Eco-friendly deep cleaning and deodorizing for trash bins.</p>
-      <button class="btn book-btn">Book Now</button>
-      <button class="btn view-btn" data-service="bin">View Service</button>
+    <div class="service-card" style="background-image: url('images/sidewalk.jpg');">
+      <div class="overlay">
+        <h3>Sidewalk Cleaning</h3>
+        <div class="buttons">
+          <button onclick="openBooking('Sidewalk Cleaning')">Book Now</button>
+          <a href="service-sidewalk.html" class="view-btn">View Service</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Booking Modal -->
-  <div id="booking-modal" class="modal">
+  <!-- BOOKING FORM POPUP -->
+  <div id="bookingModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Book a Service</h2>
+      <span class="close" onclick="closeBooking()">&times;</span>
+      <h2>Book Your Service</h2>
       <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <select>
-          <option>Car Wash</option>
-          <option>Driveway Cleaning</option>
-          <option>Sidewalk Cleaning</option>
-          <option>Fence Cleaning</option>
-          <option>Boat Cleaning</option>
-          <option>Bin Cleaning</option>
-        </select>
-        <textarea placeholder="Additional Details"></textarea>
-        <button type="submit" class="btn">Submit Booking</button>
+        <label for="service">Service</label>
+        <input type="text" id="service" name="service" readonly>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <button type="submit">Submit Booking</button>
       </form>
     </div>
   </div>
 
-  <!-- Service Details Modal -->
-  <div id="service-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div id="service-details"></div>
-    </div>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Bassi’s Bucket List. All Rights Reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
