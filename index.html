@@ -10,6 +10,7 @@
       font-family: 'Poppins', sans-serif;
       background: #111;
       color: #eee;
+      overflow-x: hidden;
     }
 
     header {
@@ -31,46 +32,45 @@
       font-weight: 600;
     }
 
-    /* Each service full-width section */
     .service {
       position: relative;
-      min-height: 90vh;
+      height: 100vh;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
       text-align: center;
       background-size: cover;
       background-position: center;
     }
-
     .overlay {
       background: rgba(0,0,0,0.6);
       padding: 30px;
       border-radius: 10px;
+      max-width: 90%;
     }
-
     .overlay h2 {
       font-size: 2.5rem;
       margin-bottom: 15px;
+      color: #fff;
     }
-
     .buttons {
       margin-top: 20px;
     }
-    .buttons button {
+    .buttons button, .buttons a {
       background: #900;
       color: #fff;
       border: none;
-      padding: 12px 25px;
-      margin: 8px;
+      padding: 14px 28px;
+      margin: 10px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
-    .buttons button:hover {
+    .buttons button:hover, .buttons a:hover {
       background: #c00;
     }
 
@@ -114,25 +114,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
-    /* Service details hidden sections */
-    .service-details {
-      display: none;
-      padding: 50px 20px;
-      background: #181818;
-      border-top: 2px solid #900;
-      text-align: center;
-    }
-    .service-details h2 {
-      color: #f33;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-    .service-details p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
   </style>
 </head>
 <body>
@@ -142,13 +123,13 @@
     <p>Premium Mobile Detailing</p>
   </header>
 
-  <!-- Service Sections -->
+  <!-- Services -->
   <section class="service" style="background-image:url('services3.jpg')">
     <div class="overlay">
       <h2>Car Wash</h2>
       <div class="buttons">
         <button onclick="openForm()">Book Now</button>
-        <button onclick="showService('carwash')">View Service</button>
+        <a href="carwash.html">View Services</a>
       </div>
     </div>
   </section>
@@ -158,7 +139,7 @@
       <h2>Fence Cleaning</h2>
       <div class="buttons">
         <button onclick="openForm()">Book Now</button>
-        <button onclick="showService('fence')">View Service</button>
+        <a href="fence.html">View Services</a>
       </div>
     </div>
   </section>
@@ -168,7 +149,7 @@
       <h2>Driveway Cleaning</h2>
       <div class="buttons">
         <button onclick="openForm()">Book Now</button>
-        <button onclick="showService('driveway')">View Service</button>
+        <a href="driveway.html">View Services</a>
       </div>
     </div>
   </section>
@@ -178,7 +159,7 @@
       <h2>Bin Cleaning</h2>
       <div class="buttons">
         <button onclick="openForm()">Book Now</button>
-        <button onclick="showService('bin')">View Service</button>
+        <a href="bin.html">View Services</a>
       </div>
     </div>
   </section>
@@ -188,7 +169,7 @@
       <h2>Premium Package</h2>
       <div class="buttons">
         <button onclick="openForm()">Book Now</button>
-        <button onclick="showService('premium')">View Service</button>
+        <a href="premium.html">View Services</a>
       </div>
     </div>
   </section>
@@ -212,45 +193,12 @@
     </div>
   </div>
 
-  <!-- Service Details -->
-  <div class="service-details" id="carwash">
-    <h2>Car Wash Packages</h2>
-    <p>Basic Sedan $150 | SUV $180 | Truck/Van $220<br>
-    Premium Sedan $200 | SUV $250 | Truck/Van $300<br>
-    Add-ons: Pet Hair $40, Paint Restoration $20, Seat Steaming $50</p>
-  </div>
-
-  <div class="service-details" id="fence">
-    <h2>Fence Cleaning</h2>
-    <p>We restore fences with deep cleaning, removing dirt, mildew, and stains for a fresh look.</p>
-  </div>
-
-  <div class="service-details" id="driveway">
-    <h2>Driveway Cleaning</h2>
-    <p>High-pressure cleaning for driveways to remove oil stains, mud, and grime for a polished finish.</p>
-  </div>
-
-  <div class="service-details" id="bin">
-    <h2>Bin Cleaning</h2>
-    <p>Sanitized and deodorized bins — eco-friendly cleaning solutions that leave your bins fresh.</p>
-  </div>
-
-  <div class="service-details" id="premium">
-    <h2>Premium Package</h2>
-    <p>Includes full detailing, car wash, driveway cleaning, fence restoration, and bin cleaning in one package!</p>
-  </div>
-
   <script>
     function openForm() {
       document.getElementById("bookingForm").style.display = "flex";
     }
     function closeForm() {
       document.getElementById("bookingForm").style.display = "none";
-    }
-    function showService(id) {
-      document.querySelectorAll('.service-details').forEach(sec => sec.style.display = "none");
-      document.getElementById(id).style.display = "block";
-      document.getElementById(id).scrollIntoView({behavior: "smooth"});
     }
   </script>
 </body>
