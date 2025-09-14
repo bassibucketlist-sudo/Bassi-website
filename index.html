@@ -3,107 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bassi’s Bucket List</title>
+  <title>Bassi's Bucket List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
-    <img src="logo.png" alt="Bassi’s Logo" style="height:60px;">
+    <img src="images/logo.png" alt="Bassi's Bucket List Logo" class="logo">
     <h1>Bassi’s Bucket List</h1>
     <p>Your trusted cleaning & detailing experts</p>
   </header>
 
-  <!-- SERVICES -->
+  <!-- Services Grid -->
   <section id="services">
-    <div class="service-card">
-      <img src="carwash.jpg" alt="Car Wash">
-      <h2>🚗 Car Wash</h2>
+    <div class="service-card" id="carwash">
+      <img src="images/carwash.jpg" alt="Car Wash">
+      <h3>Car Wash</h3>
       <p>Interior & exterior care packages for all vehicle types.</p>
-      <a href="carwash.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Car Wash')" class="btn book">Book Now</button>
+      <button onclick="openBooking('Car Wash')">Book Now</button>
+      <button onclick="viewService('carwash-details')">View Service</button>
     </div>
 
-    <div class="service-card">
-      <img src="driveway.jpg" alt="Driveway Cleaning">
-      <h2>🅿️ Driveway Cleaning</h2>
-      <p>Professional cleaning for concrete, stone, and more.</p>
-      <a href="driveway.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Driveway Cleaning')" class="btn book">Book Now</button>
-    </div>
-
-    <div class="service-card">
-      <img src="sidewalk.jpg" alt="Sidewalk Cleaning">
-      <h2>🚶 Sidewalk Cleaning</h2>
-      <p>Freshen up sidewalks with expert cleaning care.</p>
-      <a href="sidewalk.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Sidewalk Cleaning')" class="btn book">Book Now</button>
-    </div>
-
-    <div class="service-card">
-      <img src="fence.jpg" alt="Fence Cleaning">
-      <h2>🪵 Fence Cleaning</h2>
-      <p>Wood fence cleaning and restoration for a fresh new look.</p>
-      <a href="fence.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Fence Cleaning')" class="btn book">Book Now</button>
-    </div>
-
-    <div class="service-card">
-      <img src="boat.jpg" alt="Boat Cleaning">
-      <h2>⛵ Boat Cleaning</h2>
-      <p>Comprehensive cleaning tailored for your boat size.</p>
-      <a href="boat.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Boat Cleaning')" class="btn book">Book Now</button>
-    </div>
-
-    <div class="service-card">
-      <img src="bin.jpg" alt="Bin Cleaning">
-      <h2>🗑️ Bin Cleaning</h2>
-      <p>Eliminate odors and sanitize your bins effectively.</p>
-      <a href="bin.html" class="btn view">View Service</a>
-      <button onclick="openBooking('Bin Cleaning')" class="btn book">Book Now</button>
-    </div>
+    <!-- Repeat for Driveway, Sidewalk, Fence, Boat, Bin -->
   </section>
 
-  <!-- BOOKING MODAL -->
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBooking()">&times;</span>
-      <h2>Book a Service</h2>
-      <form action="https://formspree.io/f/yourformid" method="POST">
-        <label>Your Name:</label>
-        <input type="text" name="name" required>
-        <label>Your Email:</label>
-        <input type="email" name="email" required>
-        <label>Phone Number:</label>
-        <input type="text" name="phone" required>
-        <label>Service:</label>
-        <input type="text" id="serviceInput" name="service" readonly>
-        <label>Additional Details:</label>
-        <textarea name="details"></textarea>
-        <button type="submit" class="btn book">Submit Booking</button>
-      </form>
-    </div>
-  </div>
+  <!-- Service Details -->
+  <section id="carwash-details" class="service-details">
+    <h2>Car Wash Packages</h2>
+    <p>Details for Basic, Premium, Add-ons here...</p>
+  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Bassi’s Bucket List. All rights reserved.</p>
-  </footer>
+  <!-- Booking Form -->
+  <section id="booking" class="booking-form">
+    <h2>Book a Service</h2>
+    <form action="https://formspree.io/f/xyz..." method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <select name="service" id="selected-service">
+        <option value="Car Wash">Car Wash</option>
+        <option value="Driveway Cleaning">Driveway Cleaning</option>
+        <option value="Sidewalk Cleaning">Sidewalk Cleaning</option>
+        <option value="Fence Cleaning">Fence Cleaning</option>
+        <option value="Boat Cleaning">Boat Cleaning</option>
+        <option value="Bin Cleaning">Bin Cleaning</option>
+      </select>
+      <textarea name="details" placeholder="Additional Details"></textarea>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
 
-  <!-- JS -->
   <script>
     function openBooking(service) {
-      document.getElementById('serviceInput').value = service;
-      document.getElementById('bookingModal').style.display = 'block';
+      document.getElementById('selected-service').value = service;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
     }
-    function closeBooking() {
-      document.getElementById('bookingModal').style.display = 'none';
-    }
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('bookingModal')) {
-        closeBooking();
-      }
+
+    function viewService(serviceId) {
+      document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
