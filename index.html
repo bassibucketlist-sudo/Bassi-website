@@ -73,5 +73,32 @@
   <section id="services"> ... </section>
 
   <!-- Booking form goes here -->
-  <!-- paste the form code I gave you here -->
-</body>
+<!-- Booking Form Section -->
+<section id="booking">
+  <h2>Book a Service</h2>
+  <form action="https://formspree.io/f/xyzdvqyp" method="POST">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="service">Select Service:</label>
+    <select id="service" name="service" required>
+      <option value="Car Wash">Car Wash</option>
+      <option value="Driveway Cleaning">Driveway Cleaning</option>
+      <option value="Sidewalk Cleaning">Sidewalk Cleaning</option>
+      <option value="Fence Cleaning">Fence Cleaning</option>
+      <option value="Bin Cleaning">Bin Cleaning</option>
+      <option value="Boat Cleaning">Boat Cleaning</option>
+    </select>
+
+    <label for="message">Additional Details:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Book Now</button>
+  </form>
+</section>
