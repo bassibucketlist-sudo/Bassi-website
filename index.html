@@ -3,88 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bassi's Bucket List - Premium Mobile Detailing</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Bassi’s Bucket - Premium Mobile Detailing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #eee;
+    }
+
+    header {
+      background: linear-gradient(90deg, #111, #900);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header img {
+      height: 80px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin: 10px 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .card img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+    .card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card:hover .overlay {
+      opacity: 1;
+    }
+    .overlay button {
+      background: #900;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .overlay button:hover {
+      background: #c00;
+    }
+
+    /* Popup Booking Form */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #222;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      color: #fff;
+      text-align: center;
+    }
+    .popup-content h2 {
+      margin-bottom: 20px;
+      color: #f33;
+    }
+    .popup-content input, .popup-content select {
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .popup-content button {
+      margin-top: 15px;
+      background: #900;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Service Details Section */
+    .service-details {
+      display: none;
+      padding: 40px;
+      background: #181818;
+      border-top: 2px solid #900;
+    }
+    .service-details h2 {
+      color: #f33;
+      margin-bottom: 15px;
+    }
+    .service-details p {
+      max-width: 700px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
-    <img src="images/logo.png" alt="Bassi's Bucket List Logo" class="logo">
-    <h1>Bassi's Bucket List</h1>
-    <p class="tagline">Premium Mobile Detailing</p>
+    <img src="images/logo.png" alt="Bassi’s Bucket Logo">
+    <h1>Bassi’s Bucket</h1>
+    <p>Premium Mobile Detailing</p>
   </header>
 
-  <!-- SERVICES SECTION -->
   <section class="services">
-    <div class="service-card" style="background-image: url('images/carwash.jpg');">
+    <!-- Car Wash -->
+    <div class="card">
+      <img src="images/car-wash.jpg" alt="Car Wash">
       <div class="overlay">
-        <h3>Car Wash</h3>
-        <div class="buttons">
-          <button onclick="openBooking('Car Wash')">Book Now</button>
-          <a href="service-carwash.html" class="view-btn">View Service</a>
-        </div>
+        <button onclick="openForm()">Book Now</button>
+        <button onclick="showService('carwash')">View Services</button>
       </div>
     </div>
-
-    <div class="service-card" style="background-image: url('images/driveway.jpg');">
+    <!-- Fence Cleaning -->
+    <div class="card">
+      <img src="images/fence.jpg" alt="Fence Cleaning">
       <div class="overlay">
-        <h3>Driveway Cleaning</h3>
-        <div class="buttons">
-          <button onclick="openBooking('Driveway Cleaning')">Book Now</button>
-          <a href="service-driveway.html" class="view-btn">View Service</a>
-        </div>
+        <button onclick="openForm()">Book Now</button>
+        <button onclick="showService('fence')">View Services</button>
       </div>
     </div>
-
-    <div class="service-card" style="background-image: url('images/fence.jpg');">
+    <!-- Driveway Cleaning -->
+    <div class="card">
+      <img src="images/driveway.jpg" alt="Driveway Cleaning">
       <div class="overlay">
-        <h3>Fence Cleaning</h3>
-        <div class="buttons">
-          <button onclick="openBooking('Fence Cleaning')">Book Now</button>
-          <a href="service-fence.html" class="view-btn">View Service</a>
-        </div>
+        <button onclick="openForm()">Book Now</button>
+        <button onclick="showService('driveway')">View Services</button>
       </div>
     </div>
-
-    <div class="service-card" style="background-image: url('images/sidewalk.jpg');">
+    <!-- Bin Cleaning -->
+    <div class="card">
+      <img src="images/bin.jpg" alt="Bin Cleaning">
       <div class="overlay">
-        <h3>Sidewalk Cleaning</h3>
-        <div class="buttons">
-          <button onclick="openBooking('Sidewalk Cleaning')">Book Now</button>
-          <a href="service-sidewalk.html" class="view-btn">View Service</a>
-        </div>
+        <button onclick="openForm()">Book Now</button>
+        <button onclick="showService('bin')">View Services</button>
       </div>
     </div>
   </section>
 
-  <!-- BOOKING FORM POPUP -->
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBooking()">&times;</span>
-      <h2>Book Your Service</h2>
-      <form>
-        <label for="service">Service</label>
-        <input type="text" id="service" name="service" readonly>
-
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="date">Preferred Date</label>
-        <input type="date" id="date" name="date" required>
-
-        <button type="submit">Submit Booking</button>
-      </form>
+  <!-- Booking Form Popup -->
+  <div class="popup" id="bookingForm">
+    <div class="popup-content">
+      <h2>Book a Service</h2>
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Phone">
+      <select>
+        <option>Select Service</option>
+        <option>Car Wash</option>
+        <option>Fence Cleaning</option>
+        <option>Driveway Cleaning</option>
+        <option>Bin Cleaning</option>
+      </select>
+      <button onclick="closeForm()">Submit</button>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Bassi’s Bucket List. All Rights Reserved.</p>
-  </footer>
+  <!-- Service Details -->
+  <div class="service-details" id="carwash">
+    <h2>Car Wash Packages</h2>
+    <p>
+      <strong>Basic:</strong> Sedan $150, SUV $180, Truck/Van $220  
+      <br><strong>Premium:</strong> Sedan $200, SUV $250, Truck/Van $300  
+      <br><strong>Add-ons:</strong> Pet Hair Removal $40, Paint Restoration $20, Seat Steaming $50  
+      <br><em>Prices may vary depending on condition.</em>
+    </p>
+  </div>
 
-  <script src="script.js"></script>
+  <div class="service-details" id="fence">
+    <h2>Fence Cleaning</h2>
+    <p>We restore fences with deep cleaning, removing dirt, mildew, and stains for a fresh look.</p>
+  </div>
+
+  <div class="service-details" id="driveway">
+    <h2>Driveway Cleaning</h2>
+    <p>High-pressure cleaning for driveways to remove oil stains, mud, and grime for a polished finish.</p>
+  </div>
+
+  <div class="service-details" id="bin">
+    <h2>Bin Cleaning</h2>
+    <p>Sanitized and deodorized bins — eco-friendly cleaning solutions that leave your bins fresh.</p>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("bookingForm").style.display = "flex";
+    }
+    function closeForm() {
+      document.getElementById("bookingForm").style.display = "none";
+    }
+    function showService(id) {
+      // Hide all details first
+      document.querySelectorAll('.service-details').forEach(sec => sec.style.display = "none");
+      // Show selected service
+      document.getElementById(id).style.display = "block";
+      // Scroll into view
+      document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    }
+  </script>
 </body>
 </html>
