@@ -1,145 +1,66 @@
-<script>
-  function openForm(serviceName) {
-    document.getElementById("bookingPopup").style.display = "block";
-    document.getElementById("selectedService").value = serviceName;
-  }
-
-  function closeForm() {
-    document.getElementById("bookingPopup").style.display = "none";
-  }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bassi Bucket List</title>
-
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bassi’s Bucket List</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
+
   <header>
-    <img src="logo.png" alt="Bassi Bucket List Logo" class="logo" />
     <h1>Bassi’s Bucket List</h1>
-    <p class="contact">📞 Contact: 608-631-4282</p>
   </header>
 
-  <!-- Services Section -->
-  <section class="services">
-    <h2>Our Services</h2>
+  <main>
+    <!-- Car Wash -->
+    <section id="carwash">
+      <h2>🚘 Car Wash</h2>
+      <p>Interior & exterior care packages for all vehicle types.</p>
+      <a href="carwash.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
 
-    <div class="service">
-      <img src="service3.jpg" alt="Car Wash" />
-      <h3>Car Wash</h3>
-      <<button onclick="openForm('Car Wash')">Book Now</button>
-      
-      <button onclick="viewService('carwash')">View Service</button>
-    </div>
-<a href="carwash.html" class="view-service">View Service</a>
-    <div class="service">
-      <img src="service4.jpg" alt="Driveway Cleaning" />
-      <h3>Driveway Cleaning</h3>
-      <button onclick="openForm('Car Wash')">Book Now</button>
-      <button onclick="viewService('driveway')">View Service</button>
-    </div>
+    <!-- Driveway Cleaning -->
+    <section id="driveway">
+      <h2>🛣️ Driveway Cleaning</h2>
+      <p>Professional cleaning for concrete, stone, and more.</p>
+      <a href="driveway.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
 
-    <div class="service">
-      <img src="service5.jpg" alt="Sidewalk Cleaning" />
-      <h3>Sidewalk Cleaning</h3>
-      <button onclick="openForm('Car Wash')">Book Now</button>
-      <button onclick="viewService('sidewalk')">View Service</button>
-    </div>
+    <!-- Sidewalk Cleaning -->
+    <section id="sidewalk">
+      <h2>🚶 Sidewalk Cleaning</h2>
+      <p>Freshen up sidewalks with expert cleaning care.</p>
+      <a href="sidewalk.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
 
-    <div class="service">
-      <img src="service6.jpg" alt="Fence Cleaning" />
-      <h3>Fence Cleaning</h3>
-      <button onclick="openForm('Car Wash')">Book Now</button>
-      <button onclick="viewService('fence')">View Service</button>
-    </div>
-  </section>
+    <!-- Fence Cleaning -->
+    <section id="fence">
+      <h2>🪵 Fence Cleaning</h2>
+      <p>Wood fence cleaning and restoration for a new look.</p>
+      <a href="fence.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+    <!-- Boat Cleaning -->
+    <section id="boat">
+      <h2>⛵ Boat Cleaning</h2>
+      <p>Comprehensive cleaning tailored for your boat size.</p>
+      <a href="boat.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
+
+    <!-- Bin Cleaning -->
+    <section id="bin">
+      <h2>🗑️ Bin Cleaning</h2>
+      <p>Eliminate odors and sanitize your bins effectively.</p>
+      <a href="bin.html" class="view-service">View Service</a>
+      <a href="booking.html" class="book-now">Book Now</a>
+    </section>
+  </main>
+
 </body>
 </html>
-<!-- Bin Cleaning Service -->
-<div class="service-card">
-  <img src="bin-cleaning.jpg" alt="Bin Cleaning">
-  <h3>Bin Cleaning</h3>
-  <p>Keep your bins fresh, sanitized, and odor-free with our eco-friendly bin cleaning service.</p>
-  <a href="bin-cleaning.html" class="btn">View Service</a>
-</div>
-
-<!-- Boat Cleaning Service -->
-<div class="service-card">
-  <img src="boat-cleaning.jpg" alt="Boat Cleaning">
-  <h3>Boat Cleaning</h3>
-  <p>Professional detailing to keep your boat spotless, inside and out, for every adventure.</p>
-  <a href="boat-cleaning.html" class="btn">View Service</a>
-</div><body>
-  <!-- Your other sections -->
-  <section id="services"> ... </section>
-
-  <!-- Booking form goes here -->
-<!-- Booking Form Section -->
-<section id="booking">
-  <h2>Book a Service</h2>
-  <form action="https://formspree.io/f/xyzdvqyp" method="POST">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" required>
-
-    <label for="service">Select Service:</label>
-    <select id="service" name="service" required>
-      <option value="Car Wash">Car Wash</option>
-      <option value="Driveway Cleaning">Driveway Cleaning</option>
-      <option value="Sidewalk Cleaning">Sidewalk Cleaning</option>
-      <option value="Fence Cleaning">Fence Cleaning</option>
-      <option value="Bin Cleaning">Bin Cleaning</option>
-      <option value="Boat Cleaning">Boat Cleaning</option>
-    </select>
-<!-- Booking Popup Form -->
-<div id="bookingPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;">
-
-  <div style="background:#1a1a1a; color:#fff; width:90%; max-width:500px; margin:50px auto; padding:20px; border-radius:10px; position:relative;">
-    <span onclick="closeForm()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; color:#e50914;">✖</span>
-
-    <h2 style="color:#e50914; text-align:center;">Book a Service</h2>
-    <form action="https://formspree.io/f/xyzdvqyp" method="POST">
-      <input type="hidden" id="selectedService" name="service">
-
-      <label style="display:block; margin:10px 0;">Your Name:
-        <input type="text" name="name" required style="width:100%; padding:8px; border:1px solid #e50914; border-radius:5px; background:#111; color:#fff;">
-      </label>
-
-      <label style="display:block; margin:10px 0;">Your Email:
-        <input type="email" name="email" required style="width:100%; padding:8px; border:1px solid #e50914; border-radius:5px; background:#111; color:#fff;">
-      </label>
-
-      <label style="display:block; margin:10px 0;">Phone Number:
-        <input type="tel" name="phone" required style="width:100%; padding:8px; border:1px solid #e50914; border-radius:5px; background:#111; color:#fff;">
-      </label>
-
-      <label style="display:block; margin:10px 0;">Additional Details:
-        <textarea name="details" rows="3" style="width:100%; padding:8px; border:1px solid #e50914; border-radius:5px; background:#111; color:#fff;"></textarea>
-      </label>
-
-      <button type="submit" style="width:100%; background:#e50914; border:none; padding:12px; color:#fff; border-radius:5px; font-size:1em; cursor:pointer;">
-        Book Now
-      </button>
-    </form>
-  </div>
-</div>
-    <label for="message">Additional Details:</label>
-    <textarea id="message" name="message"></textarea>
-
-    <button type="submit">Book Now</button>
-  </form>
-</section>
