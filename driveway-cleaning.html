@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driveway Cleaning - Bassi’s Bucket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html"><img src="images/logo.png" alt="Bassi’s Bucket Logo" class="logo"></a>
+    <nav>
+      <a href="car-wash.html">Car Wash</a>
+      <a href="driveway-cleaning.html" class="active">Driveway</a>
+      <a href="sidewalk-cleaning.html">Sidewalk</a>
+      <a href="fence-cleaning.html">Fence</a>
+      <a href="boat-cleaning.html">Boat</a>
+      <a href="bin-cleaning.html">Bin</a>
+    </nav>
+  </header>
 
+  <!-- Hero Banner -->
+  <section class="hero" style="background-image: url('images/driveway.jpg');">
+    <div class="overlay">
+      <h1>Driveway Cleaning</h1>
+      <p>Professional cleaning for all driveway types</p>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details">
+    <h2>Included Materials</h2>
+    <ul>
+      <li>Concrete</li>
+      <li>Asphalt</li>
+      <li>Pavers</li>
+    </ul>
+
+    <h2>Specifications</h2>
+    <ul>
+      <li>High-pressure surface cleaning</li>
+      <li>Oil stain treatment</li>
+      <li>Eco-friendly detergents</li>
+      <li>Mildew and grime removal</li>
+    </ul>
+
+    <h2>Packages</h2>
+    <ul>
+      <li>1-Car Driveway — <em>Price TBD</em></li>
+      <li>2-Car Driveway — <em>Price TBD</em></li>
+      <li>3-Car Driveway — <em>Price TBD</em></li>
+    </ul>
+
+    <button class="btn" onclick="openForm()">Book Now</button>
+  </section>
+
+  <!-- Booking Popup -->
+  <div class="popup" id="bookingForm">
+    <div class="popup-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Book a Service</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option>Select Service</option>
+          <option>Driveway Cleaning</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
