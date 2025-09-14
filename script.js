@@ -1,103 +1,44 @@
-// Booking modal
-const bookingModal = document.getElementById('booking-modal');
-const serviceModal = document.getElementById('service-modal');
-const serviceDetails = document.getElementById('service-details');
-const closeButtons = document.querySelectorAll('.close');
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('bookingModal');
+  const closeBtn = document.getElementById('closeModal');
+  const serviceEls = document.querySelectorAll('.btn-book');
+  const modalServiceName = document.getElementById('modalServiceName');
+  const formServiceInput = document.getElementById('formServiceInput');
 
-// Open booking modal
-document.querySelectorAll('.book-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    bookingModal.style.display = 'flex';
+  function openModalFor(serviceName){
+    modal.setAttribute('aria-hidden','false');
+    modal.style.display = 'flex';
+    modalServiceName.textContent = 'Service: ' + serviceName;
+    if(formServiceInput) formServiceInput.value = serviceName;
+    setTimeout(()=> {
+      const first = modal.querySelector('input[name="name"]');
+      if(first) first.focus();
+    }, 120);
+  }
+
+  function closeModal(){
+    modal.setAttribute('aria-hidden','true');
+    modal.style.display = 'none';
+  }
+
+  serviceEls.forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      const service = b.dataset.service || b.closest('.service-card')?.dataset.service || 'Service';
+      openModalFor(service);
+    });
   });
-});
 
-// Open service details modal
-document.querySelectorAll('.view-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const service = btn.getAttribute('data-service');
-    let content = '';
-
-    switch(service) {
-      case 'car-wash':
-        content = `
-          <h2>Car Wash Packages</h2>
-          <h3>Basic (1–2 hours)</h3>
-          <ul>
-            <li>Hand soft-touch wash</li>
-            <li>Vacuuming mats</li>
-            <li>Wheel cleaning</li>
-            <li>Tire shine</li>
-            <li>Interior towel drying</li>
-            <li>Interior glass cleaning</li>
-            <li>Microfiber towel dry</li>
-          </ul>
-          <p><strong>Pricing:</strong><br>
-          Sedan – $150<br>
-          SUV – $180<br>
-          Truck/Van – $220</p>
-
-          <h3>Premium</h3>
-          <ul>
-            <li>Everything in Basic, plus:</li>
-            <li>Detailed interior cleaning</li>
-            <li>Total mud guard & tire care</li>
-            <li>Dashboard clean & shine</li>
-            <li>Fabric shampooing</li>
-            <li>Deodorizer treatment</li>
-          </ul>
-          <p><strong>Pricing:</strong><br>
-          Sedan – $200<br>
-          SUV – $250<br>
-          Truck/Van – $300</p>
-
-          <h3>Add-ons</h3>
-          <ul>
-            <li>Pet hair removal – $40</li>
-            <li>Paint restoration – $20</li>
-            <li>Mat & seat steaming – $50</li>
-          </ul>
-          <p><em>Prices may vary depending on vehicle type and condition.</em></p>
-        `;
-        break;
-
-      case 'driveway':
-        content = `<h2>Driveway Cleaning</h2><p>Professional cleaning for all driveway materials. Pricing based on size and condition.</p>`;
-        break;
-
-      case 'sidewalk':
-        content = `<h2>Sidewalk Cleaning</h2><p>Deep cleaning for sidewalks. Pricing depends on area and material.</p>`;
-        break;
-
-      case 'fence':
-        content = `<h2>Fence Cleaning</h2><p>Wood fence cleaning only. Price based on area.</p>`;
-        break;
-
-      case 'boat':
-        content = `<h2>Boat Cleaning</h2><p>Complete washing, waxing, and interior care for boats. Pricing depends on size and detailing needs.</p>`;
-        break;
-
-      case 'bin':
-        content = `<h2>Bin Cleaning</h2><p>Sanitize, deodorize, and deep clean bins to remove odor and bacteria. Flat rate per bin.</p>`;
-        break;
-    }
-
-    serviceDetails.innerHTML = content;
-    serviceModal.style.display = 'flex';
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) closeModal();
   });
-});
 
-// Close modals
-closeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    bookingModal.style.display = 'none';
-    serviceModal.style.display = 'none';
-  });
-});
-
-// Close on outside click
-window.addEventListener('click', e => {
-  if (e.target === bookingModal || e.target === serviceModal) {
-    bookingModal.style.display = 'none';
-    serviceModal.style.display = 'none';
+  const bookingForm = document.getElementById('bookingForm');
+  if(bookingForm){
+    bookingForm.addEventListener('submit', (e) => {
+      // allow normal POST to Formspree; the page will redirect as Formspree is configured
+      setTimeout(()=> { closeModal(); }, 250);
+    });
   }
 });
